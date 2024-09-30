@@ -13,11 +13,11 @@ import (
 
 const (
 	// TODO: choose a human-readable part for your hyperchain
-	HRP = ""
+	HRP = "fbc" // Human-readable part for FootballChain
 	// TODO: choose a name for your hyperchain
-	Name = ""
+	Name = "FootballChain" // Name for the custom Hyperchain
 	// TODO: choose a token symbol
-	Symbol = ""
+	Symbol = "FBC" // Token symbol for FootballChain token
 )
 
 var ID ids.ID
