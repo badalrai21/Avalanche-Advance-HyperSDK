@@ -1,6 +1,3 @@
-// Copyright (C) 2023, Ava Labs, Inc. All rights reserved.
-// See the file LICENSE for licensing terms.
-
 package consts
 
 import (
@@ -12,17 +9,22 @@ import (
 )
 
 const (
-	// TODO: choose a human-readable part for your hyperchain
-	HRP = ""
-	// TODO: choose a name for your hyperchain
-	Name = ""
-	// TODO: choose a token symbol
-	Symbol = ""
+	// Human-readable part for addresses
+	HRP = "myhyperchain"
+
+	// Name and symbol of the chain and token
+	Name   = "MyCustomChain"
+	Symbol = "MCT"
+
+	// Additional token-specific constants
+	MaxAssetAmount = 1000000
+	TokenDecimals  = 18
 )
 
 var ID ids.ID
 
 func init() {
+	// Generate the VM ID based on the chosen chain name
 	b := make([]byte, consts.IDLen)
 	copy(b, []byte(Name))
 	vmID, err := ids.ToID(b)
@@ -32,8 +34,7 @@ func init() {
 	ID = vmID
 }
 
-// Instantiate registry here so it can be imported by any package. We set these
-// values in [controller/registry].
+// Instantiate registry here so it can be imported by any package.
 var (
 	ActionRegistry *codec.TypeParser[chain.Action, *warp.Message, bool]
 	AuthRegistry   *codec.TypeParser[chain.Auth, *warp.Message, bool]
